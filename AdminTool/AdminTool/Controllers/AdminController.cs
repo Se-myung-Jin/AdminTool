@@ -2,6 +2,7 @@
 using AdminTool.DataContext;
 using AdminTool.Models;
 using AdminTool.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AdminTool.Controllers
@@ -37,12 +38,20 @@ namespace AdminTool.Controllers
 
                     if (searchUser != null)
                     {
+                        HttpContext.Session.SetInt32("USER_UUID", searchUser.UserNo);
                         return RedirectToAction("Index", "Home");
                     }
                 }
                 ModelState.AddModelError(string.Empty, "사용자 ID 혹은 비밀번호가 일치하지 않습니다.");
             }
             return View(model);
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("USER_UUID");
+
+            return RedirectToAction("Login", "Admin");
         }
 
         /// <summary>
