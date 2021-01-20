@@ -33,6 +33,9 @@ namespace AdminTool
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            // service에 Session 등록
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +54,8 @@ namespace AdminTool
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            // 앱에서 Session 사용
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
