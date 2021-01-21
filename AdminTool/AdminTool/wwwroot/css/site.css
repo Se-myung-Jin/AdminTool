@@ -1,8 +1,8 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    height: 100%;
+    background-repeat: no-repeat;
 }
 
 /* Wrapping element */
@@ -17,6 +17,59 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.card-container.card {
+    max-width: 330px;
+    padding: 40px 40px;
+}
+
+.card {
+    background-color: #F7F7F7;
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 200px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.profile-name-card {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+.btn.btn-signin {
+    min-width: 280px;
+    font-weight: 900;
+    height: 40px;
+    font-size: 15px;
+}
+
+.form-group #AccountID,
+.form-group #AccountPW {
+    direction: ltr;
+    height: 40px;
+    font-size: 14px;
+}
+
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
