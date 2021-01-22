@@ -70,6 +70,10 @@ textarea {
     font-size: 14px;
 }
 
+.container {
+    width: 100%;
+}
+
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
