@@ -30,15 +30,15 @@ namespace AdminTool.Controllers
 
                     var user = new AdminUser
                     {
-                        UserID = Util.Encrypt(model.UserID, key),
-                        UserPassword = Util.Encrypt(model.UserPassword, key)
+                        Username = model.Username,
+                        Password = Util.Encrypt(model.Password, key)
                     };
 
-                    var searchUser = db.User.FirstOrDefault(u => u.UserID.Equals(user.UserID) && u.UserPassword.Equals(user.UserPassword));
+                    var searchUser = db.User.FirstOrDefault(u => u.Username.Equals(user.Username) && u.Password.Equals(user.Password));
 
                     if (searchUser != null)
                     {
-                        HttpContext.Session.SetInt32("USER_UUID", searchUser.UserNo);
+                        HttpContext.Session.SetInt32("USER_UUID", searchUser.Id);
                         return RedirectToAction("Index", "Home");
                     }
                 }
@@ -74,8 +74,8 @@ namespace AdminTool.Controllers
                 {
                     var newUser = new AdminUser
                     {
-                        UserID = Util.Encrypt(model.UserID, key),
-                        UserPassword = Util.Encrypt(model.UserPassword, key)
+                        Username = model.Username,
+                        Password = Util.Encrypt(model.Password, key)
                     };
                     db.User.Add(newUser);
                     db.SaveChanges();
