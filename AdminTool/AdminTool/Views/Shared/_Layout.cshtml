@@ -47,13 +47,26 @@
             </div>
         </div>
     </nav>
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            @if (Context.Session.GetInt32("USER_UUID") != null)
+            {
+                @Html.Partial("_Sidebar")
+
+                <div class="col-md-9 body-content">
+                    @RenderBody()
+                </div>
+            }
+            else
+            {
+                <div class="body-content">
+                    @RenderBody()
+                </div>
+            }
+        </div>
+    </div>
 
     <partial name="_CookieConsentPartial" />
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-    </div>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

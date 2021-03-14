@@ -8,8 +8,6 @@ body {
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
 }
 
 input,
@@ -96,4 +94,42 @@ textarea {
     .carousel-caption {
         display: none;
     }
+}
+
+/*
+    sidebar
+*/
+
+.bd-sidebar {
+    position: relative;
+    padding-top: 5rem;
+    height: 100vh;
+    background: #eee;
+    border-right: 1px solid rgba(0,0,0,.1);
+    max-width: 240px;
+    min-width: 240px;
+}
+
+.bd-sidebar .nav {
+    display: block;
+}
+
+.bd-sidebar .nav > li > a:hover {
+    background: #e2e2e2
+}
+
+.bd-sidebar .nav > li > a {
+    display: block;
+    padding: .7rem 1.0rem;
+    font-size: 16px;
+    font-weight: initial;
+}
+
+.bd-sidebar .nav > li {
+    font-weight: 900;
+    font-size: 14px;
+}
+
+.bd-sidebar .nav > li > a > .glyphicon {
+    width: 20px;
 }

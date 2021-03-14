@@ -16,6 +16,10 @@ namespace AdminTool.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            if (HttpContext.Session.GetInt32("USER_UUID") != null)
+            {
+                HttpContext.Session.Remove("USER_UUID");
+            }
             return View();
         }
 
@@ -60,6 +64,10 @@ namespace AdminTool.Controllers
         /// <returns></returns>
         public IActionResult Register()
         {
+            if (HttpContext.Session.GetInt32("USER_UUID") != null)
+            {
+                HttpContext.Session.Remove("USER_UUID");
+            }
             return View();
         }
 
