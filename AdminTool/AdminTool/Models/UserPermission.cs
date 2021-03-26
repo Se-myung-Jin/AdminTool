@@ -11,7 +11,6 @@ namespace AdminTool.Models
         /// <summary>
         /// 운영툴 유저 고유 ID
         /// </summary>
-        [Key]
         public int Id { get; set; }
 
         /// <summary>

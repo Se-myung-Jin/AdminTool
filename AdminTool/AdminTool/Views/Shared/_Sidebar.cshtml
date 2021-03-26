@@ -5,12 +5,21 @@
 
 <div class="col-md-3 bd-sidebar">
     <ul class="nav">
-        @if (Context.Session.GetInt32(((int)AdminConst.Permission.manage).ToString()) == 1)
+        @if (Context.Session.GetInt32(((int)AdminConst.Permission.MANAGE).ToString()) == 1)
         {
             <li>운영툴 설정</li>
-            <li><a><span class="glyphicon glyphicon-tower"></span>계정 관리</a></li>
-            <li><a><span class="glyphicon glyphicon-thumbs-up"></span>권한 관리</a></li>
-            <li><a><span class="glyphicon glyphicon-time"></span>운영툴 로그</a></li>
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.PERMISSION).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-tower"></span>계정 관리</a></li>
+            }
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.ADMINTOOL_LOG).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-time"></span>운영툴 로그</a></li>
+            }
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.ACCOUNT).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-thumbs-up"></span>권한 관리</a></li>
+            }
             <li><div class="nav-divider"></div></li>
         }
         @if (true)

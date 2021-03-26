@@ -9,7 +9,10 @@ namespace AdminTool
     {
         public enum Permission
         {
-            manage = 1,
+            MANAGE = 1,
+            PERMISSION = 2,
+            ADMINTOOL_LOG = 3,
+            ACCOUNT = 4,
         }
     }
 }
