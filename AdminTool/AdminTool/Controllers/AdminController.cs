@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 using AdminTool.DataContext;
 using AdminTool.Models;
 using AdminTool.ViewModels;
@@ -43,6 +44,10 @@ namespace AdminTool.Controllers
                     if (searchUser != null)
                     {
                         HttpContext.Session.SetInt32("USER_UUID", searchUser.Id);
+
+                        var permissions = db.User_Permission.Where(p => p.Id.Equals(searchUser.Id)).ToList();
+
+                        permissions.ForEach(x => HttpContext.Session.SetInt32(x.Permission_Id.ToString(), 1));
                         return RedirectToAction("Index", "Home");
                     }
                 }

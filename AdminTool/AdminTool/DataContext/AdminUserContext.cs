@@ -7,6 +7,8 @@ namespace AdminTool.DataContext
     {
         public DbSet<AdminUser> User { get; set; }
 
+        public DbSet<UserPermission> User_Permission { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySql(@"Server=localhost;Database=admin;User=root;Password=123456");
