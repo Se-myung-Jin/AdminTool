@@ -8,6 +8,8 @@ body {
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
+    padding-top: 8rem;
+    padding-left: 6rem;
 }
 
 input,
@@ -102,7 +104,7 @@ textarea {
 
 .bd-sidebar {
     position: relative;
-    padding-top: 5rem;
+    padding-top: 6rem;
     height: 100vh;
     background: #eee;
     border-right: 1px solid rgba(0,0,0,.1);
