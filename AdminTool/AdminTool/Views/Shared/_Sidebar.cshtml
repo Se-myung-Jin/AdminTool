@@ -5,28 +5,98 @@
 
 <div class="col-md-3 bd-sidebar">
     <ul class="nav">
-        @if (Context.Session.GetInt32(((int)AdminConst.Permission.MANAGE).ToString()) == 1)
+        @if (Context.Session.GetInt32(((int)AdminConst.Permission.USER_MANAGER).ToString()) == 1)
+        {
+            <li>게임 유저 관리</li>
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.USER_DATA).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-user"></span>유저 데이터</a></li>
+            }
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.USER_LOG).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-time"></span>유저 로그</a></li>
+            }
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.USER_DEVICE).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-random"></span>기기 연동</a></li>
+            }
+            <li><div class="nav-divider"></div></li>
+        }
+        @if (Context.Session.GetInt32(((int)AdminConst.Permission.GUILD_MANAGER).ToString()) == 1)
+        {
+            <li>게임 길드 관리</li>
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.GUILD_DATA).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-education"></span>길드 데이터</a></li>
+            }
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.GUILD_LOG).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-time"></span>길드 로그</a></li>
+            }
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.GUILD_CHAT_LOG).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-comment"></span>길드 채팅 로그</a></li>
+            }
+            <li><div class="nav-divider"></div></li>
+        }
+        @if (Context.Session.GetInt32(((int)AdminConst.Permission.EVENT_MANAGER).ToString()) == 1)
+        {
+            <li>이벤트 통합 관리</li>
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.EVENT_BANNER).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-list-alt"></span>이벤트 배너</a></li>
+            }
+            <li><div class="nav-divider"></div></li>
+        }
+        @if (Context.Session.GetInt32(((int)AdminConst.Permission.SERVICE_MANAGER).ToString()) == 1)
+        {
+            <li>게임 서비스 관리</li>
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.NOTICE).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-earphone"></span>공지 사항 관리</a></li>
+            }
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.PUSH).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-send"></span>푸시 메시지 발송</a></li>
+            }
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.SINGLE_MAIL).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-envelope"></span>메일 개별 발송</a></li>
+            }
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.MULTI_MAIL).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-envelope"></span>메일 전체 발송</a></li>
+            }
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.PAYMENT).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-usd"></span>결제 이슈 관리</a></li>
+            }
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.COUPON).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-edit"></span>쿠폰 관리</a></li>
+            }
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.BLACKLIST).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-thumbs-down"></span>블랙리스트</a></li>
+            }
+            <li><div class="nav-divider"></div></li>
+        }
+        @if (Context.Session.GetInt32(((int)AdminConst.Permission.ADMIN_MANAGER).ToString()) == 1)
         {
             <li>운영툴 설정</li>
-            @if (Context.Session.GetInt32(((int)AdminConst.Permission.PERMISSION).ToString()) == 1)
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.ADMIN_ACCOUNT).ToString()) == 1)
             {
                 <li><a><span class="glyphicon glyphicon-tower"></span>계정 관리</a></li>
             }
-            @if (Context.Session.GetInt32(((int)AdminConst.Permission.ADMINTOOL_LOG).ToString()) == 1)
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.ADMIN_LOG).ToString()) == 1)
             {
                 <li><a><span class="glyphicon glyphicon-time"></span>운영툴 로그</a></li>
             }
-            @if (Context.Session.GetInt32(((int)AdminConst.Permission.ACCOUNT).ToString()) == 1)
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.ADMIN_PERMISSION).ToString()) == 1)
             {
                 <li><a><span class="glyphicon glyphicon-thumbs-up"></span>권한 관리</a></li>
             }
             <li><div class="nav-divider"></div></li>
-        }
-        @if (true)
-        {
-            <li>게임 서비스</li>
-            <li><a><span class="glyphicon glyphicon-envelope"></span>메일 개별 전송</a></li>
-            <li><a><span class="glyphicon glyphicon-envelope"></span>메일 전체 전송</a></li>
         }
     </ul>
 </div>
