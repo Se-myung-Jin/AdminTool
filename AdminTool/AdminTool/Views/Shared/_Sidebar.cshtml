@@ -81,6 +81,23 @@
             }
             <li><div class="nav-divider"></div></li>
         }
+        @if (Context.Session.GetInt32(((int)AdminConst.Permission.SERVER_MANAGER).ToString()) == 1)
+        {
+            <li>서버 운용 관리</li>
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.MACHINE_STATUS).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-hdd"></span>서버 머신 상태</a></li>
+            }
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.WHITELIST_USER).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-thumbs-up"></span>유저 화이트리스트</a></li>
+            }
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.WHITELIST_IP).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-thumbs-up"></span>IP 화이트리스트</a></li>
+            }
+            <li><div class="nav-divider"></div></li>
+        }
         @if (Context.Session.GetInt32(((int)AdminConst.Permission.ADMIN_MANAGER).ToString()) == 1)
         {
             <li>운영툴 설정</li>
