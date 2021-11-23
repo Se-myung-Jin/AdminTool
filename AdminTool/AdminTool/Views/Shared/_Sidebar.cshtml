@@ -41,20 +41,20 @@
         }
         @if (Context.Session.GetInt32(((int)AdminConst.Permission.EVENT_MANAGER).ToString()) == 1)
         {
-            <li>이벤트 통합 관리</li>
+            <li>이벤트 공지 관리</li>
             @if (Context.Session.GetInt32(((int)AdminConst.Permission.EVENT_BANNER).ToString()) == 1)
             {
-                <li><a><span class="glyphicon glyphicon-list-alt"></span>이벤트 배너</a></li>
+                <li><a><span class="glyphicon glyphicon-comment"></span>이벤트 배너</a></li>
+            }
+            @if (Context.Session.GetInt32(((int)AdminConst.Permission.NOTICE).ToString()) == 1)
+            {
+                <li><a><span class="glyphicon glyphicon-comment"></span>공지 사항 관리</a></li>
             }
             <li><div class="nav-divider"></div></li>
         }
         @if (Context.Session.GetInt32(((int)AdminConst.Permission.SERVICE_MANAGER).ToString()) == 1)
         {
             <li>게임 서비스 관리</li>
-            @if (Context.Session.GetInt32(((int)AdminConst.Permission.NOTICE).ToString()) == 1)
-            {
-                <li><a><span class="glyphicon glyphicon-earphone"></span>공지 사항 관리</a></li>
-            }
             @if (Context.Session.GetInt32(((int)AdminConst.Permission.PUSH).ToString()) == 1)
             {
                 <li><a><span class="glyphicon glyphicon-send"></span>푸시 메시지 발송</a></li>
